@@ -1,0 +1,7 @@
+$primary-color: var(--primary-color);
+
+/* stylelint-disable */
+:export {
+  primaryColor: $primary-color;
+}
+/* stylelint-enable */
