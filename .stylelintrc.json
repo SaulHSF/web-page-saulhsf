@@ -14,5 +14,6 @@
         "ignoreAtRules": ["@tailwind", "tailwind"]
       }
     ]
-  }
+  },
+  "ignorePatterns": ["**/*.html", "**/*.json"]
 }
