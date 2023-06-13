@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Image from "next/image";
 import anime from "animejs";
+import ButtonTheme from "../molecules/buttons/Theme";
+import { ThemeContext } from "@/contexts/Theme";
 
-const HomeOrganisms = () => {
+const HomeOrganisms = ({ className }: { className?: string }) => {
+  const { isDarkMode } = useContext(ThemeContext);
+
   useEffect(() => {
     anime({
       targets: ".line-drawing-demo path",
@@ -18,7 +22,8 @@ const HomeOrganisms = () => {
   }, []);
 
   return (
-    <main className="flex flex-col">
+    <main className={`flex flex-col ${className}`}>
+      <ButtonTheme />
       <div className="flex flex-row justify-between items-center">
         <div
           className={`rounded-full overflow-hidden object-cover w-44 h-44 flex justify-center items-center`}
@@ -50,7 +55,7 @@ const HomeOrganisms = () => {
                 fill="none"
                 fillOpacity={1}
                 fillRule="nonzero"
-                stroke="#000000"
+                stroke={`${isDarkMode ? "#ffffff" : "#000000"}`}
                 strokeWidth={6.72998}
                 strokeLinecap="butt"
                 strokeLinejoin="round"
